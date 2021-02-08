@@ -18,26 +18,25 @@
 */
 
 pragma solidity 0.6.10;
-pragma experimental "ABIEncoderV2";
 
-import { ExplicitERC20 } from "../lib/ExplicitERC20.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+contract OracleMock {
+    uint256 public price;
 
-contract ExplicitERC20Mock {
-    
-    function transferFrom(
-        IERC20 _token,
-        address _from,
-        address _to,
-        uint256 _quantity
-    )
-        external
-    {
-        ExplicitERC20.transferFrom(
-            _token,
-            _from,
-            _to,
-            _quantity
-        );
+    constructor(uint256 _startingPrice) public {
+        price = _startingPrice;
+    }
+
+    /* ============ External Functions ============ */
+    function requestValue(uint256 _newPrice) external {
+        price = _newPrice;
+    }
+
+    /**
+     * Returns the queried data from an oracle returning uint256
+     *
+     * @return  Current price of asset represented in uint256
+     */
+    function getValue() external view returns (uint256) {
+        return price;
     }
 }

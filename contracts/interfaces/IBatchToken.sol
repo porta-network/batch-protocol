@@ -1,5 +1,4 @@
 /*
-    Copyright 2020 Set Labs Inc.
     Copyright 2021 Kianite Limited.
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +22,6 @@ import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @title IBatchToken
- * @author Set Protocol
  * @author Kianite Limited
  *
  * Interface for operating with BatchTokens.
